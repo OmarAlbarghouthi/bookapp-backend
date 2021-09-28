@@ -3,7 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-
+const getBookRouter = require('./book');
 
 
 const server = express();
@@ -11,7 +11,7 @@ server.use(cors());
 const PORT = process.env.PORT;
 
 
-const getBookRouter = require('./book');
+
 server.get('/books',getBookRouter)
 
 server.get('/', homeHandler);

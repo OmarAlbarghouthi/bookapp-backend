@@ -36,11 +36,14 @@ function seedBookData() {
     book3.save();
 }
 
-seedBookData();
+// seedBookData();
+
+
 
 // localhost:3001/books
 function getBookRouter(req,res){
-    bookModel.find({},(error,data) => {
+    let email = req.query.email;
+    bookModel.find({email:email},(error,data) => {
         if(error) {
             console.log('error in getting data',error);
         } else {
